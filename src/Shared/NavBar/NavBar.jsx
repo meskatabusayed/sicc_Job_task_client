@@ -1,18 +1,34 @@
+import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+
+
 const NavBar = () => {
+  const {user , logOut} = useContext(AuthContext);
+
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => console.log('user Logged Out'))
+        .catch(error => {
+            console.log(error);
+        })
+    }
   const navOptions = (
     <>
       <li>
-        <a>Home</a>
+        <NavLink to='/'>Home</NavLink>
       </li>
 
       <li>
         <a>Contact</a>
       </li>
       <li>
-        <a>SignUp</a>
+        <NavLink to='/signup'>SignUp</NavLink>
       </li>
       <li>
-        <a>SignIn</a>
+        <NavLink to='/signin'>SignIn</NavLink>
       </li>
       
     </>
@@ -51,7 +67,21 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+      {
+            user ? <>
+            <div className="avatar  mr-2">
+              <div className="w-24 rounded">
+                <img src={user.photoURL} />
+              </div>
+            </div>
+            <span>{user.displayName}</span>
+            <a onClick={handleLogOut} className="btn btn-primary ml-2">Sign Out</a>
+            </>
+            :
+            <Link to='/signin'>
+                 <button  className="btn btn-primary ">Sign In</button>
+            </Link>
+        }
       </div>
     </div>
   );
