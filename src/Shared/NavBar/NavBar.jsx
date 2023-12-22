@@ -22,7 +22,7 @@ const NavBar = () => {
       </li>
 
       <li>
-        <a>Contact</a>
+        <NavLink to='/contact'>Contact</NavLink>
       </li>
       <li>
         <NavLink to='/signup'>SignUp</NavLink>
