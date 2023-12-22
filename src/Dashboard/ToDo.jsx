@@ -1,5 +1,5 @@
-import TodoList from "../../components/ui/TodoList";
-import useTodo from "../../hooks/useTodo";
+import TodoList from "../components/ui/TodoList";
+import useTodo from "../hooks/useTodo";
 
 const ToDo = () => {
   const { data, refetch, todotask, completetask } = useTodo();

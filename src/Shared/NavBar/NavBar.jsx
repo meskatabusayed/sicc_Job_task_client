@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-
+import { HiUserCircle } from "react-icons/hi";
 
 const NavBar = () => {
   const {user , logOut} = useContext(AuthContext);
@@ -30,7 +30,35 @@ const NavBar = () => {
       <li>
         <NavLink to='/signin'>SignIn</NavLink>
       </li>
+      <li>
+        <NavLink to='/dashboard/profile'>Dashboard</NavLink>
+      </li>
+     {/* 
+       <div>
+      <div>
+          {user ? (
+            <Link to="/dashboard/profile" className="avatar">
+              <div className="w-12 rounded-full">
+                <img src={user.photoURL} />
+              </div>
+            </Link>
+          ) : (
+            <Link to={"/signin"} className="avatar">
+              <div className="w-12 rounded-full overflow-hidden">
+                <HiUserCircle className="text-5xl" />
+              </div>
+            </Link>
+          )}
+        </div>
+        <Link
+          to={user ? "/dashboard/todo" : "/signin"}
+          className="px-10  py-2 font-bold border rounded-md"
+        >
+          Task
+        </Link>
+      </div>
       
+     */}
     </>
   );
 

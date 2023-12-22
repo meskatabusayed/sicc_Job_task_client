@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../Dashboard/Sidebar";
 
 
+
 const DashbordLayout = () => {
   return (
     <div className="grid grid-cols-12  min-h-screen ">

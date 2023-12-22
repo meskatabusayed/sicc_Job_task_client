@@ -11,6 +11,7 @@ import DashbordLayout from "../Layout/DashbordLayout";
 import Dashboard from "../Dashboard/Dashboard";
 import ToDo from "../Dashboard/ToDo";
 import CreateToDo from "../Dashboard/CreateToDo";
+import Profile from "../Dashboard/Profile";
 
 
 export const router = createBrowserRouter([
@@ -48,10 +49,10 @@ export const router = createBrowserRouter([
           path: "todo",
           element: <ToDo />,
         },
-        // {
-        //   path: "profile",
-        //   element: <Profile />,
-        // },
+        {
+          path: "profile",
+          element: <Profile />,
+        },
         {
           path: "createtodo",
           element: <CreateToDo />,
