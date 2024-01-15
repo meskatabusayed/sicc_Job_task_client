@@ -30,10 +30,8 @@ const NavBar = () => {
       <li>
         <NavLink to='/signin'>SignIn</NavLink>
       </li>
-      <li>
-        <NavLink to='/dashboard/profile'>Dashboard</NavLink>
-      </li>
-     {/* 
+     
+     
        <div>
       <div>
           {user ? (
@@ -58,7 +56,7 @@ const NavBar = () => {
         </Link>
       </div>
       
-     */}
+    
     </>
   );
 

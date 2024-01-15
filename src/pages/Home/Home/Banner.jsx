@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -8,7 +9,7 @@ const Banner = () => {
          <div className="text-white pl-10 w-1/2">
             <h2 className="text-6xl font-bold mb-5">Confluence makes task management easy</h2>
            <div className="mt-5"> 
-            <button className="btn btn-primary">Let’s Explore</button>
+           <Link to='/dashboard/profile'><button className="btn btn-primary">Let’s Explore</button></Link> 
          </div>
          </div>
         

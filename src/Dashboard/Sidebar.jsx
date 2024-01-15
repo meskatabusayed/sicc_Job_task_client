@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 import { FcTodoList } from "react-icons/fc";
 import { BsPencilSquare } from "react-icons/bs";
 import Avater from "../components/shared/Avater";
-import useAuth from "../hooks/useAuth";
+// import useAuth from "../hooks/useAuth";
 import useTodo from "../hooks/useTodo";
 
 const Sidebar = () => {
-  const { user } = useAuth();
-  const { data, todotask, completetask } = useTodo();
+  // const { user } = useAuth();
+  const { todotask, completetask } = useTodo();
   return (
     <div>
       <div className="text-center mt-5 mb-20">
         <Avater size={"w-32"}></Avater>
-        <h1 className="text-2xl font-bold">{user}</h1>
+        {/* <h1 className="text-2xl font-bold">{user}</h1> */}
       </div>
       <div>
         <Link

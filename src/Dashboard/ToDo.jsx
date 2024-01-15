@@ -2,11 +2,11 @@ import TodoList from "../components/ui/TodoList";
 import useTodo from "../hooks/useTodo";
 
 const ToDo = () => {
-  const { data, refetch, todotask, completetask } = useTodo();
+  const {  refetch, todotask, completetask } = useTodo();
 
   return (
     <div>
-      <h1 className="text-3xl font-bold">TO-DO</h1>
+       <h1 className="text-3xl font-bold">TO-DO</h1>
       <div className="my-10">
         {todotask?.map((todo) => (
           <TodoList
@@ -27,7 +27,8 @@ const ToDo = () => {
             refetch={refetch}
           ></TodoList>
         ))}
-      </div>
+      </div> 
+       
     </div>
   );
 };

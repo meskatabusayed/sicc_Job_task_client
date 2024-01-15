@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
-import useAxiosPublic from "../hooks/useAxiosPublic";
-import useAuth from "../hooks/useAuth";
-import useTodo from "../hooks/useTodo";
-import useSingleTodo from "../hooks/useSingleTodo";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAuth from "../../hooks/useAuth";
+import useTodo from "../../hooks/useTodo";
+import { useLocation, useParams } from "react-router-dom";
+import useSingleTodo from "../../hooks/useSingleTodo";
 
-const CreateToDo = () => {
+const UpdateTodo = () => {
   const { user } = useAuth();
   const [priority, setPriority] = useState("low");
   const axios = useAxiosPublic();
   const { refetch } = useTodo();
-  const location = useLocation();
-  console.log(location);
-  const { data: singletodo, refetch: auto } = useSingleTodo(location?.state);
+  const id = useParams();
+
+  const { data: singletodo, refetch: auto } = useSingleTodo(id.id);
 
   const {
     register,
@@ -33,17 +33,17 @@ const CreateToDo = () => {
       des,
       date,
       priority: getPriority,
-      email: user?.email,
+      email: "sunnysharif154@gmail.com",
       status: "incomplete",
     };
 
-    const res = await axios.post("/todo", newList);
+    const res = await axios.patch(`/todo/${id.id}`, newList);
     refetch();
     console.log(res.data);
   };
   return (
     <div>
-      <h1 className="text-3xl font-bold  capitalize">create new tasks</h1>
+      <h1 className="text-3xl font-bold  capitalize">Update tasks</h1>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -133,4 +133,4 @@ const CreateToDo = () => {
   );
 };
 
-export default CreateToDo;
+export default UpdateTodo;
